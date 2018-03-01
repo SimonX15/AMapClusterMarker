@@ -34,6 +34,7 @@ class MainActivity : Activity(), ClusterRender, AMap.OnMapLoadedListener, Cluste
         setContentView(R.layout.activity_main)
         mMapView = map
         mMapView!!.onCreate(savedInstanceState)
+
         init()
 
     }
@@ -53,6 +54,9 @@ class MainActivity : Activity(), ClusterRender, AMap.OnMapLoadedListener, Cluste
                         "test")
                 mClusterOverlay!!.addClusterItem(regionItem)
             }
+
+            val uiSettings = mAMap!!.uiSettings
+            uiSettings.isScaleControlsEnabled = true
         }
     }
 
@@ -94,6 +98,7 @@ class MainActivity : Activity(), ClusterRender, AMap.OnMapLoadedListener, Cluste
 
                 }
                 mClusterOverlay = ClusterOverlay(mAMap, items,
+//                        600,
                         dp2px(applicationContext, clusterRadius.toFloat()),
                         applicationContext)
                 mClusterOverlay!!.setClusterRenderer(this@MainActivity)
@@ -181,6 +186,4 @@ class MainActivity : Activity(), ClusterRender, AMap.OnMapLoadedListener, Cluste
         val scale = context.resources.displayMetrics.density
         return (dpValue * scale + 0.5f).toInt()
     }
-
-
 }

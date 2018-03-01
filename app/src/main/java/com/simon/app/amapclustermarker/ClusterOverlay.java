@@ -34,6 +34,8 @@ import java.util.List;
  */
 public class ClusterOverlay implements AMap.OnCameraChangeListener,
         AMap.OnMarkerClickListener {
+    /** TAG */
+    private final static String TAG = ClusterOverlay.class.getSimpleName();
     private AMap mAMap;
     private Context mContext;
     private List<ClusterItem> mClusterItems;
@@ -160,9 +162,14 @@ public class ClusterOverlay implements AMap.OnCameraChangeListener,
 
     @Override
     public void onCameraChangeFinish(CameraPosition arg0) {
-        mPXInMeters = mAMap.getScalePerPixel();
-        mClusterDistance = mPXInMeters * mClusterSize;
-        assignClusters();
+        Log.i(TAG, "onCameraChangeFinish: " + mAMap.getScalePerPixel());
+
+        //在比例尺内才进行计算
+        if (mAMap.getScalePerPixel() < 40) {
+            mPXInMeters = mAMap.getScalePerPixel();//获取当前缩放级别下，地图上1像素点对应的长度，单位米。
+            mClusterDistance = mPXInMeters * mClusterSize;
+            assignClusters();
+        }
     }
 
     //点击事件
