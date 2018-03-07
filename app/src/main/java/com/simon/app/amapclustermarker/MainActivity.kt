@@ -32,7 +32,7 @@ class MainActivity : Activity(), ClusterRender, AMap.OnMapLoadedListener, Cluste
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mMapView = map
+        mMapView = map_view
         mMapView!!.onCreate(savedInstanceState)
 
         init()
