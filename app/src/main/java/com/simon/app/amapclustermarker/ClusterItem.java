@@ -12,5 +12,5 @@ public interface ClusterItem {
      *
      * @return
      */
-     LatLng getPosition();
+    LatLng getPosition();
 }

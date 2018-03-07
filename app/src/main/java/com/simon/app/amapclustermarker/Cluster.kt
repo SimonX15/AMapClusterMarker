@@ -9,7 +9,7 @@ import java.util.ArrayList
  * Created by yiyi.qi on 16/10/10.
  */
 
-data class Cluster constructor(val centerLatLng: LatLng) {
+data class Cluster(val centerLatLng: LatLng) {
 
     var mClusterItems: ArrayList<ClusterItem> = ArrayList()
     var marker: Marker? = null

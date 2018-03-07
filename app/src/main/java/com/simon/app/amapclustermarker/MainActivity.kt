@@ -97,7 +97,7 @@ class MainActivity : Activity(), ClusterRender, AMap.OnMapLoadedListener, Cluste
                     items.add(regionItem)
 
                 }
-                mClusterOverlay = ClusterOverlay(mAMap, items,
+                mClusterOverlay = ClusterOverlay(mAMap!!, items,
 //                        600,
                         dp2px(applicationContext, clusterRadius.toFloat()),
                         applicationContext)
